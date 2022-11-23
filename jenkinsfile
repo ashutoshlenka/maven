@@ -1,9 +1,9 @@
-node('built-in') 
+node('built-in')
 {
 stage('contineous download')
 {
     git 'https://github.com/intelliqittrainings/maven.git'
-} 
+}
 stage('contineous build')
 {
     sh 'mvn package'
@@ -22,3 +22,4 @@ stage('contineous delivery')
     deploy adapters: [tomcat9(credentialsId: '1bb61e73-8de6-454c-abde-d60fe13d91d6', path: '', url: 'http://172.31.38.33:8080')], contextPath: 'pro', war: '**/*.war'
 }
 }
+
